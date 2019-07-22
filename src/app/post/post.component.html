@@ -1,0 +1,13 @@
+<li [ngClass]="{'list-group-item' : true,
+              'list-group-item-success': titre === 'Mon premier post',
+              'list-group-item-danger': titre === 'Mon deuxième post'}">
+
+  <h4 >{{ titre }} {{ created_at | date }}</h4>
+  <p > {{content}} </p>
+   <div class = "btn-group">
+   <button type = "button" class = "btn btn-success">Love it</button>
+   <button type = "button" class = "btn btn-danger">Don't love it</button>
+          </div>
+
+
+</li>

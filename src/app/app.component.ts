@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'post-angular';
+
+created_at: Date
+
+
+posts = [
+{
+titre: 'Mon Premier Post',
+content: 'Salut'
+},
+{
+titre: 'Mon deixième post',
+content: 'soyez sympa '
+},
+{
+titre: 'Encore un post',
+content: 'je sais pas quoi ajouter autre'
+}
+];
+
 }
