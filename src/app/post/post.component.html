@@ -2,7 +2,8 @@
               'list-group-item-success': titre === 'Mon premier post',
               'list-group-item-danger': titre === 'Mon deuxième post'}">
 
-  <h4 >{{ titre }} {{ created_at | date }}</h4>
+  <h4><strong><font size="5">{{ titre }}</font></strong>
+  <div class="pull-right"><i> {{ createdAt | date :'short' }} </i></div> </h4>
   <p > {{content}} </p>
    <div class = "btn-group">
    <button type = "button" class = "btn btn-success">Love it</button>

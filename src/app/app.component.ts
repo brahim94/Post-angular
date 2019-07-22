@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-created_at: Date
+createdAt = new Date();
 
 
 posts = [

@@ -9,6 +9,7 @@ export class PostComponent implements OnInit {
 
   @Input() titre: string;
   @Input() content: string;
+  @Input() createdAt = new Date;
 
   constructor() { }
 
