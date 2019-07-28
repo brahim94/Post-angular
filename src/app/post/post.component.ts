@@ -10,8 +10,8 @@ export class PostComponent implements OnInit {
   @Input() titre: string;
   @Input() content: string;
   @Input() createdAt = new Date;
-  like : number = 0;
-  deslike : number = 0;
+  loveIts : number = 0;
+
 
   constructor() { }
 
@@ -19,11 +19,11 @@ export class PostComponent implements OnInit {
   }
 
    clickLike(): void{
-        this.like++
+        this.loveIts++
         }
 
     clickDeslike(): void{
-        this.deslike++
+        this.loveIts--
     }
 
 }

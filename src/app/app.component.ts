@@ -13,15 +13,15 @@ createdAt = new Date();
 posts = [
 {
 titre: 'Mon Premier Post',
-content: 'Hello again, it\'\s my way of doing things, it might likes you, it might not'
+content: 'Hello Friend, you know there is a handred way to do this, and what matters is if it operational or not'
 },
 {
 titre: 'Mon deixième post',
-content: 'but don\'\t let that affects your decision in which concerncs the mark that you gonna give me '
+content: 'So, be cool :D '
 },
 {
 titre: 'Encore un post',
-content: 'je sais pas quoi ajouter autre'
+content: ' i don\'\t know whatelse to add'
 }
 ];
 
