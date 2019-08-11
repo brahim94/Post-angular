@@ -8,7 +8,25 @@ import DataSnapshot = firebase.database.DataSnapshot
 
 export class PostsService {
   
-    posts: Post[] = [];
+  loveIts : number = 0;
+  createdAt = new Date();
+  titre = 'posts'; 
+
+  posts = [
+    {
+    titre: 'Mon Premier Post',
+    content: 'Hello Friend, you know there is a handred way to do this, and what matters is if it operational or not'
+    },
+    {
+    titre: 'Mon deixième post',
+    content: 'So, be cool :D '
+    },
+    {
+    titre: 'Encore un post',
+    content: ' i don\'\t know whatelse to add'
+    }
+    ];
+
     postsSubject = new Subject<Post[]>();
 
   constructor() {
@@ -62,4 +80,12 @@ export class PostsService {
     this.savePosts();
     this.emitPosts();
   }
+  clickLike(): void{
+    this.loveIts++
+    }
+
+  clickDeslike(): void{
+    this.loveIts--
+}
+
 }

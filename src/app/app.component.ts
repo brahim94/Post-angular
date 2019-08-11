@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase'
 
 @Component({
   selector: 'app-root',
@@ -6,24 +7,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-titre = 'posts'; 
+
+  constructor() {
+    const config = {
+      apiKey: "AIzaSyB9DHgEyjXjBWwW5E-9G9naonLW8VmfHX0",
+      authDomain: "posts-78b9e.firebaseapp.com",
+      databaseURL: "https://posts-78b9e.firebaseio.com",
+      projectId: "posts-78b9e",
+      storageBucket: "",
+      messagingSenderId: "488086188598",
+      appId: "1:488086188598:web:08439f32a11907b9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(config);
+
+    }
+  }
 
 
 
 
-posts = [
-{
-titre: 'Mon Premier Post',
-content: 'Hello Friend, you know there is a handred way to do this, and what matters is if it operational or not'
-},
-{
-titre: 'Mon deixième post',
-content: 'So, be cool :D '
-},
-{
-titre: 'Encore un post',
-content: ' i don\'\t know whatelse to add'
-}
-];
 
-}
+

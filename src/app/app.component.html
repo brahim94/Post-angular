@@ -1,28 +1,29 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active">
-          <a routerLink="posts">Posts</a>
+          <a routerLink="posts">posts</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li routerLinkActive="active">
-          <a routerLink="Post/new">nouveau post</a>
-        </li>
+          <a routerLink="posts/new">Nouvel post</a>
       </ul>
     </div>
-  </nav>
+</nav>
+<!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h2><strong>Posts</strong></h2>
       <ul class="list-group">
-        <app-post-list-item *ngFor="let post of posts"
+          <ul>
+              <app-post-list-item *ngFor="let post of posts"
                   [titre]="post.titre"
                   [content]="post.content">
-
-        </app-post-list-item>
+              </app-post-list-item>
+       </ul>
+             
       </ul>
     </div>
   </div>
