@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+//import { postsService } from '../services/posts.service';
 import { Post } from '../models/post.model';
 import { Subscription } from 'rxjs';
 import { PostsService } from '../services/posts.service';
@@ -12,36 +13,35 @@ import { Router } from '@angular/router';
 export class PostComponent implements OnInit {
 
   posts: Post[];
-  postSubscription: Subscription;
-  
+  postsSubscription: Subscription;
+
   //@Input() posts: any;
   
-  constructor(private postsservice: PostsService,
-              private router : Router) { }
+  constructor(private postsService: PostsService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.postSubscription = this.postsservice.postsSubject.subscribe(
+    this.postsSubscription = this.postsService.postsSubject.subscribe(
       (posts: Post[]) => {
         this.posts = posts;
-
       }
     );
-    this.postsservice.emitPosts();
+    this.postsService.emitPosts();
   }
 
   onNewPost() {
-  this.router.navigate(['/posts', 'new']);
+    this.router.navigate(['/posts', 'new']);
   }
 
   onDeletePost(post: Post) {
-    this.postsservice.removePost(post);
+    this.postsService.removePost(post);
   }
-
+  
   onViewPost(id: number) {
     this.router.navigate(['/posts', 'view', id]);
   }
 
   ngOnDestroy() {
-    this.postSubscription.unsubscribe();
+    this.postsSubscription.unsubscribe();
   }
 }

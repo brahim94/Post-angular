@@ -1,7 +1,14 @@
-<div class="row">
-              <div class="col-xs-12">
-                <h1>{{ post.titre }}</h1>
-                <h3>{{ post.content }}</h>
-                <button class="btn btn-default" (click)="onBack()">Retour</button>
-              </div>
-            </div>
+<li [ngClass]="{'list-group-item' : true,
+              'list-group-item-success': loveIts > 0,
+              'list-group-item-danger': loveIts < 0}">
+
+  <h4><strong><font size="5">{{ titre }}</font></strong>
+  <div class="pull-right"><i> {{ createdAt | date :'short' }} </i></div> </h4>
+  <p > {{content}} </p>
+   <div class = "btn-group">
+   <button (click)="clickLike()" type = "button" class = "btn btn-success">Love it</button>
+   <button (click) =" clickDeslike()" type = "button" class = "btn btn-danger">Don't love it</button>
+          </div>
+
+
+</li>

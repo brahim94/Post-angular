@@ -1,55 +1,15 @@
-<nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <ul class="nav navbar-nav">
-            <li routerLinkActive="active">
-              <a routerLink="posts">posts</a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li routerLinkActive="active">
-              <a routerLink="posts/new">Nouvel post</a>
-          </ul>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="list-group">
+            
+            
+           <button class="list-group-item"*ngFor="let post of posts; let i = index"
+            (click)='onViewPost(i)'><app-post-list-item 
+            [titre]="post.titre"
+            [content]="post.content"> </app-post-list-item></button>
+             
         </div>
-    </nav>
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <h2><strong>Posts</strong></h2>
-          <ul class="list-group">
-              <div>
-                  <button 
-                  class="list-group-item" 
-                  *ngFor="let post of posts; let i = index"
-                  (click)="onViewPost(i)">
-                <!--mn hna bda template dyal postlistitem-->
-                   <li [ngClass]="{'list-group-item' : true,
-                  'list-group-item-success': loveIts > 0,
-                  'list-group-item-danger': loveIts < 0}">
-    
-      <h4><strong><font size="5">{{ titre }}</font></strong>
-      <div class="pull-right"><i> {{ createdAt | date :'short' }} </i></div> </h4>
-      <p > {{content}} </p>
-       <div class = "btn-group">
-       <button (click)="clickLike()" type = "button" class = "btn btn-success">Love it</button>
-       <button (click) =" clickDeslike()" type = "button" class = "btn btn-danger">Don't love it</button>
-              </div>
-    
-    
-    </li>
-    
-                        <button class="btn btn-default pull right"
-                        (click)="onDeletePost(post)">
-                        <span class="glyphicon glyphicon-minus"></span>
-                        </button>
-                </button>
-            </div>          
-          </ul>
-        </div>
-      </div>>
-    
     </div>
-    
-    
-    
-    
+</div>
+
+       
