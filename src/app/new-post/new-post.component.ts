@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { PostsService } from '../services/posts.service';
 import { Router } from '@angular/router';
 import { Post } from '../models/post.model';
@@ -18,23 +18,14 @@ export class NewPostComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.initForm();
+   
   }
 
-  initForm() {
-    this.postForm = this.formBuilder.group(
-      {
-        titre:['', Validators.required],
-        content:['', Validators.required],
-      }
-    );
-  }
-
-  onSavePost() {
-    const titre = this.postForm.get('titre').value;
-    const content = this.postForm.get('content').value;
-    const newPost = new Post(titre, content);
-    //this.postsService.creatNewPost(newPost);
+  onSubmit(form: NgForm) {
+    const titre = form.value['titre'];
+    const content = form.value['content'];
+    this.postsService.addPost(titre, content);
     this.router.navigate(['/posts']);
   }
+
 }
