@@ -8,16 +8,13 @@ import { PostsService } from './services/posts.service';
 })
 export class AppComponent implements OnInit {
   
-  isAuth = false;
-  titre = 'posts'; 
-  posts: any[];
 
 
-constructor(private postsService: PostsService) {
+constructor() {
 }
 
 ngOnInit() {
-  this.posts = this.postsService.posts;
+
 
 }
 }

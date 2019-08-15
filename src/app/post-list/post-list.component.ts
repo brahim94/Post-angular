@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-//import { postsService } from '../services/posts.service';
 import { Post } from '../models/post.model';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/';
 import { PostsService } from '../services/posts.service';
 import { Router } from '@angular/router';
 
@@ -14,8 +13,7 @@ export class PostComponent implements OnInit {
   isAuth = false;
   titre = 'posts'; 
   posts: any[];
-
-  //postsSubscription: Subscription;
+  postsSubscription: Subscription;
 
   //@Input() posts: any;
   
@@ -23,13 +21,12 @@ export class PostComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    //this.postsSubscription = this.postsService.postsSubject.subscribe(
-      //(posts: Post[]) => {
-        //this.posts = posts;
-      //}
-    //);
-    //this.postsService.emitPosts();
-    this.posts = this.postsService.posts;
+    this.postsSubscription = this.postsService.postsSubject.subscribe(
+      (posts: Post[]) => {
+        this.posts = posts;
+      }
+    );
+    this.postsService.emitPostSubject();
   }
 
   onNewPost() {
@@ -44,7 +41,7 @@ export class PostComponent implements OnInit {
    // this.router.navigate(['/posts', 'view', id]);
   //}
 
-  //ngOnDestroy() {
-    //this.postsSubscription.unsubscribe();
-  //}
+  ngOnDestroy() {
+    this.postsSubscription.unsubscribe();
+  }
 }
