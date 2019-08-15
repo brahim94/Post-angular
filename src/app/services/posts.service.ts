@@ -27,14 +27,13 @@ export class PostsService {
 
   constructor() {
   }
-  
+
   clickLike(): void{
     this.loveIts++
     }
 
   clickDeslike(): void{
     this.loveIts--
-
-
 }
+
 }

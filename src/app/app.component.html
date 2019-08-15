@@ -1,33 +1,20 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-        <li routerLinkActive="active">
-          <a routerLink="posts">posts</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li routerLinkActive="active">
-          <a routerLink="posts/new">Nouvel post</a>
+        <li class=active> <a routerLink="posts">posts</a></li>
+        <li class=active> <a routerLink="posts/new">Nouvel post</a></li>
       </ul>
     </div>
 </nav>
-<!--The content below is only a placeholder and can be replaced.-->
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2><strong>Posts</strong></h2>
-      <ul class="list-group">
-          <ul>
-              <app-post-list-item
-                   *ngFor="let post of posts"
-                  [titre]="post.titre"                
-                  [content]="post.content">
-              </app-post-list-item>
-          </ul>          
-      </ul>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
+
 
 
 

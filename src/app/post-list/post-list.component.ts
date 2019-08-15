@@ -11,9 +11,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./post-list.component.css']
 })
 export class PostComponent implements OnInit {
+  isAuth = false;
+  titre = 'posts'; 
+  posts: any[];
 
-  posts: Post[];
-  postsSubscription: Subscription;
+  //postsSubscription: Subscription;
 
   //@Input() posts: any;
   
@@ -21,27 +23,28 @@ export class PostComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.postsSubscription = this.postsService.postsSubject.subscribe(
-      (posts: Post[]) => {
-        this.posts = posts;
-      }
-    );
-    this.postsService.emitPosts();
+    //this.postsSubscription = this.postsService.postsSubject.subscribe(
+      //(posts: Post[]) => {
+        //this.posts = posts;
+      //}
+    //);
+    //this.postsService.emitPosts();
+    this.posts = this.postsService.posts;
   }
 
   onNewPost() {
     this.router.navigate(['/posts', 'new']);
   }
 
-  onDeletePost(post: Post) {
-    this.postsService.removePost(post);
-  }
+  //onDeletePost(post: Post) {
+    //this.postsService.removePost(post);
+  //}
   
-  onViewPost(id: number) {
-    this.router.navigate(['/posts', 'view', id]);
-  }
+ // onViewPost(id: number) {
+   // this.router.navigate(['/posts', 'view', id]);
+  //}
 
-  ngOnDestroy() {
-    this.postsSubscription.unsubscribe();
-  }
+  //ngOnDestroy() {
+    //this.postsSubscription.unsubscribe();
+  //}
 }
