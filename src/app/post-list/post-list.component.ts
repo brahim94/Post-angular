@@ -33,6 +33,10 @@ export class PostComponent implements OnInit {
     this.router.navigate(['/posts', 'new']);
   }
 
+  onSave() {
+    this.postsService.SavePostsToServer();
+  }
+
   //onDeletePost(post: Post) {
     //this.postsService.removePost(post);
   //}

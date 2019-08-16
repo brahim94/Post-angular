@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post.model';
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/Http';
 //import * as firebase from 'firebase';
 //import DataSnapshot = firebase.database.DataSnapshot
 
@@ -30,21 +31,21 @@ export class PostsService {
     ];
 
    
-  constructor() {
+  constructor(private httpClient: HttpClient) {
   }
     emitPostSubject() {
       this.postsSubject.next(this.posts.slice());
     }
 
-  clickLike(): void{
-    this.loveIts++
-    }
+    clickLike(): void{
+      this.loveIts++
+      }
 
-  clickDeslike(): void{
+    clickDeslike(): void{
     this.loveIts--
     }
   
-  addPost(titre: string, content: string) {
+    addPost(titre: string, content: string) {
     const postObject = {
       id: 0,
       titre: '',
@@ -59,4 +60,16 @@ export class PostsService {
     this.emitPostSubject();
   }
 
+  SavePostsToServer() {
+    this.httpClient
+      .put('https://posts-78b9e.firebaseio.com/posts.json', this.posts)
+      .subscribe(
+        () => {
+          console.log('Enregistrelent terminé');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
 }
