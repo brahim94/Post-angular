@@ -13,7 +13,7 @@ import { SinglePostComponent } from './post-list/single-post/single-post.compone
 
 const appRoutes: Routes = [
   { path: 'posts', component: PostComponent},
-  { path: 'posts/new', component: NewPostComponent},
+  { path: 'Posts/new', component: NewPostComponent},
   { path: 'posts/view', component: PostListItemComponent},
   { path: 'posts/single', component: SinglePostComponent}
 ];

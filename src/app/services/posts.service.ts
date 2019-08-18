@@ -21,18 +21,18 @@ export class PostsService {
     },
     {
     id: 2,
-    titre: 'Mon deixième post',
+    titre: 'Mon deixième Post',
     content: 'So, be cool :D '
     },
     {
     id: 3,
-    titre: 'Encore un post',
+    titre: 'Encore un Post',
     content: ' i don\'\t know whatelse to add'
     }
     ];
 
     clickLike(loveIts: number) {
-     loveIts =  this.loveIts++
+      this.loveIts++
       }
   
      clickDeslike(loveIts: number) {
