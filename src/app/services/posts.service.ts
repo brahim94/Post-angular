@@ -10,8 +10,9 @@ import { HttpClient } from '@angular/common/Http';
 export class PostsService {
 
   postsSubject = new Subject<Post[]>();
+  public loveIts: number = 0;
+  public dontloveIt: number = 0;
 
-  loveIts : number = 0;
   private  posts = [
     {
     id: 1,
@@ -30,6 +31,15 @@ export class PostsService {
     }
     ];
 
+    clickLike(loveIts: number) {
+     loveIts =  this.loveIts++
+      }
+  
+     clickDeslike(loveIts: number) {
+    loveIts = this.loveIts-- 
+    }
+  
+
    
   constructor(private httpClient: HttpClient) {
   }
@@ -37,14 +47,7 @@ export class PostsService {
       this.postsSubject.next(this.posts.slice());
     }
 
-    clickLike(): void{
-      this.loveIts++
-      }
-
-    clickDeslike(): void{
-    this.loveIts--
-    }
-  
+    
     addPost(titre: string, content: string) {
     const postObject = {
       id: 0,
@@ -72,4 +75,5 @@ export class PostsService {
         }
       );
   }
+  
 }

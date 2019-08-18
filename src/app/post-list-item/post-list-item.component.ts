@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { PostsService } from '../services/posts.service';
 import { Subscription } from 'rxjs';
 import { Post } from '../models/post.model';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-post-list-item',
@@ -12,9 +13,11 @@ export class PostListItemComponent implements OnInit, OnDestroy {
 
   @Input() titre: string;
   @Input() content: string;
-  loveIts : number = 0;
-  posts: any[];
+  private test : number ;
 
+  posts: any[];
+  private count: number = 0;
+  private discount: number = 0;
   postsSubscription: Subscription;
 
   createdAt = new Date();
@@ -29,16 +32,25 @@ export class PostListItemComponent implements OnInit, OnDestroy {
   }
  );
   this.postsService.emitPostSubject();
+  
+  }
+  
+ 
+
+  LikeIt(count: number) {
+  this.postsService.clickLike(count);
+  this.count = this.postsService.loveIts;
+  console.log(this.count);
   }
 
-  LikeIt() {
-    this.postsService.clickLike();
+  Deslike(count: number) {
+    this.postsService.clickDeslike(count);
+    this.count = this.postsService.loveIts;
+    console.log(this.postsService.loveIts);
     
   }
 
-  Deslike() {
-    this.postsService.clickDeslike();
-  }
+  
 
   ngOnDestroy() {
     this.postsSubscription.unsubscribe();
