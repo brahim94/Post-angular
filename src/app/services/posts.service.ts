@@ -19,16 +19,7 @@ export class PostsService {
     titre: 'Mon Premier Post',
     content: 'Hello Friend, you know there is a handred way to do this, and what matters is if it operational or not'
     },
-    {
-    id: 2,
-    titre: 'Mon deixième Post',
-    content: 'So, be cool :D '
-    },
-    {
-    id: 3,
-    titre: 'Encore un Post',
-    content: ' i don\'\t know whatelse to add'
-    }
+
     ];
 
     clickLike(loveIts: number) {
@@ -74,6 +65,19 @@ export class PostsService {
           console.log('Erreur ! : ' + error);
         }
       );
+  }
+
+  removePost(post: Post) {
+    const postIndexToRemove = this.posts.findIndex(
+      (postEl) => {
+        if(postEl == post) {
+          return true;
+        }
+      }
+    );
+    this.posts.splice(postIndexToRemove, 1);
+    this.SavePostsToServer();
+    this.emitPostSubject();
   }
   
 }
