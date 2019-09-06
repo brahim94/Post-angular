@@ -78,6 +78,7 @@ export class PostsService {
     this.posts.splice(postIndexToRemove, 1);
     this.SavePostsToServer();
     this.emitPostSubject();
+    console.log()
   }
   
 }

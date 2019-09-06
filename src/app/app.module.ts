@@ -15,7 +15,9 @@ const appRoutes: Routes = [
   { path: 'posts', component: PostComponent},
   { path: 'Posts/new', component: NewPostComponent},
   { path: 'posts/view', component: PostListItemComponent},
-  { path: 'posts/single', component: SinglePostComponent}
+  { path: 'posts/single', component: SinglePostComponent},
+  { path: '', redirectTo: 'posts', pathMatch: 'full'},
+  { path: '**', redirectTo: 'posts'} 
 ];
 
 @NgModule({
