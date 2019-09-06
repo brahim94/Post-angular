@@ -13,14 +13,7 @@ export class PostsService {
   public loveIts: number = 0;
   public dontloveIt: number = 0;
 
-  private  posts = [
-    {
-    id: 1,
-    titre: 'Mon Premier Post',
-    content: 'Hello Friend, you know there is a handred way to do this, and what matters is if it operational or not'
-    },
-
-    ];
+  private  posts = [];
 
     clickLike(loveIts: number) {
       this.loveIts++
@@ -41,14 +34,14 @@ export class PostsService {
     
     addPost(titre: string, content: string) {
     const postObject = {
-      id: 0,
+      //id: 0,
       titre: '',
       content: ''
     };
 
     postObject.titre = titre;
     postObject.content = content; 
-    postObject.id = this.posts[(this.posts.length - 1)].id + 1;
+    //postObject.id = this.posts[(this.posts.length - 1)].id + 1;
 
     this.posts.push(postObject);
     this.emitPostSubject();
